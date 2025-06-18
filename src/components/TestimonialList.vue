@@ -6,8 +6,8 @@
         :modules="[Navigation, Pagination]"
         :slides-per-view="3"
         :space-between="30"
-        :navigation="true"
-        :pagination="{ clickable: true }"
+        :navigation="true as any"
+        :pagination="{ clickable: true } as any"
         :breakpoints="{ 0: { slidesPerView: 1 }, 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }"
         class="pb-5"
       >
