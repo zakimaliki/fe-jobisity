@@ -2,16 +2,11 @@
   <section class="testimonial-list py-5">
     <div class="container">
       <h2 class="text-center mb-4">Testimoni</h2>
-      <Swiper
-        :modules="[Navigation, Pagination]"
-        :slides-per-view="3"
-        :space-between="30"
-        :navigation="true as any"
-        :pagination="{ clickable: true } as any"
-        :breakpoints="{ 0: { slidesPerView: 1 }, 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }"
+      <Splide
+        :options="splideOptions"
         class="pb-5"
       >
-        <SwiperSlide v-for="(t, idx) in testimonials" :key="idx">
+        <SplideSlide v-for="(t, idx) in testimonials" :key="idx">
           <div class="d-flex justify-content-center h-100">
             <div class="card h-100 shadow-sm border-0 align-items-center" style="max-width: 340px;">
               <div class="card-body d-flex flex-column align-items-center text-center">
@@ -28,18 +23,13 @@
               </div>
             </div>
           </div>
-        </SwiperSlide>
-      </Swiper>
+        </SplideSlide>
+      </Splide>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation, Pagination } from 'swiper/modules';
-
 const testimonials = [
   { name: 'John Doe', quote: 'Jobisity membantu saya mendapatkan pekerjaan impian dengan mentor yang sangat suportif dan materi yang relevan dengan industri.' },
   { name: 'Sarah Putri', quote: 'Materi pelatihan di Jobisity sangat aplikatif dan mudah dipahami. Saya jadi lebih percaya diri menghadapi dunia kerja.' },
@@ -51,13 +41,29 @@ const testimonials = [
   { name: 'Siti Aminah', quote: 'Jobisity memberikan peluang kerja yang luas dan relevan.' },
   { name: 'Rizky Saputra', quote: 'Saya sangat merekomendasikan Jobisity untuk pengembangan karier.' },
 ];
+
+const splideOptions = {
+  type: 'loop',
+  perPage: 3,
+  gap: '30px',
+  pagination: true,
+  arrows: true,
+  breakpoints: {
+    900: { perPage: 2 },
+    600: { perPage: 1 },
+  },
+};
+
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/vue-splide/css';
 </script>
 
 <style scoped>
-.swiper-button-next, .swiper-button-prev {
-  color: #2d7cff;
+.splide__arrow {
+  background: #2d7cff;
+  color: #fff;
 }
-.swiper-pagination-bullet-active {
+.splide__pagination__page.is-active {
   background: #2d7cff;
 }
 </style> 
