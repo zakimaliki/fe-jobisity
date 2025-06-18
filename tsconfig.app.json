@@ -7,6 +7,7 @@
     "module": "NodeNext",
     "jsx": "preserve",
     "moduleResolution": "nodenext",
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["./src/*"]
     }

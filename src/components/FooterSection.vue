@@ -73,4 +73,10 @@
 .footer__col-title {
   font-weight: 600;
 }
+.footer ul,
+.footer li {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
 </style> 
