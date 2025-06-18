@@ -30,7 +30,15 @@
 </template>
 
 <script setup lang="ts">
-const testimonials = [
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/vue-splide/css';
+
+interface Testimonial {
+  name: string;
+  quote: string;
+}
+
+const testimonials: Testimonial[] = [
   { name: 'John Doe', quote: 'Jobisity membantu saya mendapatkan pekerjaan impian dengan mentor yang sangat suportif dan materi yang relevan dengan industri.' },
   { name: 'Sarah Putri', quote: 'Materi pelatihan di Jobisity sangat aplikatif dan mudah dipahami. Saya jadi lebih percaya diri menghadapi dunia kerja.' },
   { name: 'Budi Santoso', quote: 'Komunitas Jobisity sangat suportif, banyak peluang networking dan konsultasi karier yang membantu perkembangan saya.' },
@@ -42,7 +50,20 @@ const testimonials = [
   { name: 'Rizky Saputra', quote: 'Saya sangat merekomendasikan Jobisity untuk pengembangan karier.' },
 ];
 
-const splideOptions = {
+interface SplideOptions {
+  type: string;
+  perPage: number;
+  gap: string;
+  pagination: boolean;
+  arrows: boolean;
+  breakpoints: {
+    [key: number]: {
+      perPage: number;
+    };
+  };
+}
+
+const splideOptions: SplideOptions = {
   type: 'loop',
   perPage: 3,
   gap: '30px',
@@ -53,9 +74,6 @@ const splideOptions = {
     600: { perPage: 1 },
   },
 };
-
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/vue-splide/css';
 </script>
 
 <style scoped>
