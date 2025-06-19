@@ -14,8 +14,13 @@
         </div>
         <div class="col-md-6 d-flex justify-content-center">
           <slot name="image">
-            <div class="hero__img-placeholder d-flex align-items-center justify-content-center">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 17l6-6a2 2 0 0 1 2.8 0l7.2 7"/><circle cx="9" cy="9" r="2"/></svg>
+            <div class="hero__img-wrapper d-flex align-items-center justify-content-center">
+              <img
+                :src="heroImg"
+                alt="Karier Impianmu Bersama Jobisity"
+                class="hero__img"
+                loading="lazy"
+              />
             </div>
           </slot>
         </div>
@@ -25,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import heroImg from '@/assets/hero.avif';
 </script>
 
 <style scoped>
@@ -41,18 +47,49 @@
   color: #222;
   line-height: 1.6;
 }
-.hero__img-placeholder {
-  width: 280px;
-  height: 280px;
-  border: 2.5px dashed #bbb;
-  background: #f7faff;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(45,124,255,0.04);
+.hero__img-wrapper {
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #eaf1ff 0%, #f7faff 100%);
+  border-radius: 2.5rem;
+  box-shadow: 0 8px 32px rgba(45,124,255,0.10), 0 1.5px 8px rgba(45,124,255,0.04);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 2.5rem;
+  box-shadow: 0 2px 16px rgba(45,124,255,0.08);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+}
+.hero__img:hover {
+  transform: scale(1.035);
+  box-shadow: 0 8px 32px rgba(45,124,255,0.18);
+}
+@media (max-width: 1200px) {
+  .hero__img-wrapper {
+    max-width: 420px;
+    border-radius: 2rem;
+  }
+  .hero__img {
+    border-radius: 2rem;
+  }
 }
 @media (max-width: 900px) {
-  .hero__img-placeholder {
-    width: 180px;
-    height: 180px;
+  .hero__img-wrapper {
+    max-width: 90vw;
+    aspect-ratio: 16/10;
+    border-radius: 1.2rem;
+  }
+  .hero__img {
+    border-radius: 1.2rem;
   }
   .hero__title {
     font-size: 1.35rem;
@@ -62,9 +99,13 @@
   }
 }
 @media (max-width: 600px) {
-  .hero__img-placeholder {
-    width: 120px;
-    height: 120px;
+  .hero__img-wrapper {
+    max-width: 98vw;
+    aspect-ratio: 16/12;
+    border-radius: 0.7rem;
+  }
+  .hero__img {
+    border-radius: 0.7rem;
   }
 }
 </style> 

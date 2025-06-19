@@ -20,10 +20,9 @@
             <div class="col-12 col-md-4 mb-3 mb-md-0">
               <div class="footer__col-title mb-2">Our Program</div>
               <ul class="list-group list-group-flush">
-                <li class="px-0 py-1 border-0">Full Stack JavaScript</li>
-                <li class="px-0 py-1 border-0">Data Science</li>
-                <li class="px-0 py-1 border-0">Digital Marketing</li>
-                <li class="px-0 py-1 border-0">Back End Golang</li>
+                <li class="px-0 py-1 border-0">Fullstack Javascript</li>
+                <li class="px-0 py-1 border-0">DevOps Engineer</li>
+                <li class="px-0 py-1 border-0">Mobile Developer</li>
               </ul>
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0">
@@ -42,7 +41,6 @@
                 <li class="px-0 py-1 border-0">Belajar Intensif</li>
                 <li class="px-0 py-1 border-0">Growth Mindset</li>
                 <li class="px-0 py-1 border-0">Hiring Partners</li>
-                <li class="px-0 py-1 border-0">Relevant Skill</li>
               </ul>
             </div>
           </div>
